@@ -267,6 +267,57 @@ def render_pdf(html_path, pdf_path):
         browser.close()
 
 
+def embed_youtube_videos(html_content):
+    """
+    Finds YouTube links in HTML content and embeds them as responsive iframe players.
+    Supports short (youtu.be), long (youtube.com/watch), and embed formats, including start time.
+    """
+    pattern = r'<a href="(https?://(?:www\.)?(?:youtube\.com/watch\?v=|youtu\.be/|youtube\.com/embed/)([^"\s>]+))">.*?</a>'
+    
+    def replace_match(match):
+        full_url = match.group(1)
+        video_id = None
+        start_time = None
+        
+        parsed = urllib.parse.urlparse(full_url)
+        if 'youtu.be' in parsed.netloc:
+            video_id = parsed.path.strip('/')
+        elif 'youtube.com' in parsed.netloc:
+            if parsed.path.startswith('/watch'):
+                query_params = urllib.parse.parse_qs(parsed.query)
+                video_id = query_params.get('v', [None])[0]
+            elif parsed.path.startswith('/embed/'):
+                video_id = parsed.path.split('/')[2]
+                
+        # Extract start time parameter
+        query_params = urllib.parse.parse_qs(parsed.query)
+        fragment_params = urllib.parse.parse_qs(parsed.fragment)
+        t_val = (query_params.get('t', [None])[0] or 
+                 fragment_params.get('t', [None])[0] or 
+                 query_params.get('start', [None])[0])
+                 
+        if t_val:
+            t_val = t_val.rstrip('s')
+            if t_val.isdigit():
+                start_time = t_val
+                
+        if video_id:
+            embed_url = f"https://www.youtube.com/embed/{video_id}"
+            if start_time:
+                embed_url += f"?start={start_time}"
+                
+            return (
+                f'<div class="video-container">\n'
+                f'  <iframe src="{embed_url}" frameborder="0" '
+                f'allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" '
+                f'allowfullscreen></iframe>\n'
+                f'</div>'
+            )
+        return match.group(0)
+        
+    return re.sub(pattern, replace_match, html_content)
+
+
 def main():
     print("Starting generator...")
     ensure_directories()
@@ -297,6 +348,8 @@ def main():
 
         # Convert Markdown to HTML
         web_html_content = markdown.markdown(web_md, extensions=['extra', 'admonition', 'nl2br'])
+        # Embed YouTube videos if any are linked
+        web_html_content = embed_youtube_videos(web_html_content)
         poster_html_content = markdown.markdown(poster_md, extensions=['extra', 'admonition', 'nl2br'])
 
         # Generate QR Code
