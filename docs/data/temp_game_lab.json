@@ -1,0 +1,13 @@
+{
+  "title": "Instructions for temperature in Game Lab",
+  "slug": "temp_game_lab",
+  "content_html": "<h1>Instructions for temperature in Game Lab</h1>\n<p>Please use the thermostats across the game lab to adjust temperature. If there is issues with the temperature please Contact UCSC Facilities.</p>\n<p><img alt=\"Thermostat Img\" src=\"assets/IMG_9950.JPEG\" /></p>\n<p><a href=\"https://toolkit.engineering.ucsc.edu/facilities-space-management/help/\">Submit Facilities Request Ticket</a></p>",
+  "meta": {
+    "generated_at": "2026-06-23T21:38:12.575199Z",
+    "source_file": "pages/temp_game_lab.md",
+    "qr_url": "https://SentientDragon5.github.io/posters-sites/temp_game_lab.html"
+  },
+  "media": [
+    "assets/IMG_9950.JPEG"
+  ]
+}
