@@ -3,7 +3,7 @@
   "slug": "oscilloscope",
   "content_html": "<h1>How to use an Oscilloscope</h1>\n<p>An oscillioscope helps you view the waveform that the voltage takes in a circuit.</p>\n<p><a href=\"https://youtu.be/lSHAE_Y6snc?si=DThIanj3iWwHUZIy&amp;t=16\">Youtube Video</a></p>\n<p>If the machine is broken, <a href=\"https://bels.engineering.ucsc.edu/open-support-ticket/\">open a ticket with BELS</a></p>",
   "meta": {
-    "generated_at": "2026-06-23T21:38:10.617874Z",
+    "generated_at": "2026-06-23T21:49:52.314210Z",
     "source_file": "pages/oscilloscope.md",
     "qr_url": "https://SentientDragon5.github.io/posters-sites/oscilloscope.html"
   },

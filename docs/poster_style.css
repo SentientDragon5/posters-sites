@@ -1,14 +1,15 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Outfit:wght@600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&family=Outfit:wght@600;700;800&display=swap');
 
 :root {
-  --primary: #1e1b4b; /* Deep Navy */
-  --accent: #4f46e5; /* Indigo */
-  --text-dark: #0f172a; /* Dark Slate */
-  --text-muted: #334155; /* Slate */
-  --border: #cbd5e1;
+  --primary: #003c6c; /* UCSC Blue */
+  --royal-blue: #1569a9; /* UCSC Royal Blue */
+  --accent-gold: #fdc700; /* UCSC Gold */
+  --text-dark: #24292f;
+  --text-muted: #57606a;
+  --border: #d0d7de;
   
-  --font-heading: 'Outfit', -apple-system, sans-serif;
-  --font-body: 'Inter', -apple-system, sans-serif;
+  --font-heading: 'Outfit', 'Roboto', sans-serif;
+  --font-body: 'Roboto', sans-serif;
 }
 
 @page {
@@ -33,7 +34,6 @@ body {
 
 /* Elegant poster frame / border */
 .poster-container {
-  padding: 0.8in;
   flex: 1;
   display: flex;
   flex-direction: column;
@@ -44,67 +44,98 @@ body {
   position: relative;
 }
 
+/* Top blue gradient banner matching the BELS site */
 .poster-header {
+  background: linear-gradient(90deg, #003c6c 29%, #1569a9 100%);
+  padding: 1.25in 0.8in 0.4in 0.8in; /* top padding accounts for margin/border */
+  margin-top: -16px; /* offset the top border */
   display: flex;
   justify-content: space-between;
   align-items: center;
-  border-bottom: 2px solid var(--border);
-  padding-bottom: 1.25rem;
+  position: relative;
 }
 
-.poster-badge {
-  background-color: var(--accent);
-  color: #ffffff;
-  padding: 0.5rem 1rem;
-  border-radius: 9999px;
-  font-family: var(--font-heading);
-  font-weight: 700;
-  font-size: 0.85rem;
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
+/* Golden Separator Bar under header */
+.poster-header::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 6px;
+  background-color: var(--accent-gold);
 }
 
 .poster-logo {
   font-family: var(--font-heading);
   font-weight: 800;
-  color: var(--primary);
-  font-size: 1.15rem;
+  color: #ffffff;
+  font-size: 1.75rem;
   letter-spacing: -0.01em;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
 }
 
+.be-badge {
+  background-color: var(--accent-gold);
+  color: var(--primary);
+  font-weight: 900;
+  padding: 0.2rem 0.4rem;
+  border-radius: 4px;
+  font-size: 1.3rem;
+  line-height: 1;
+}
+
+.poster-badge {
+  background-color: rgba(255, 255, 255, 0.15);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  color: #ffffff;
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+/* Main Content Area */
 .poster-content {
+  padding: 0 0.8in;
   margin: auto 0;
   display: flex;
   flex-direction: column;
-  gap: 1.25rem;
+  gap: 1.5rem;
 }
 
 .poster-content h1 {
   font-family: var(--font-heading);
-  font-size: 3.75rem;
+  font-size: 3.5rem;
   font-weight: 800;
-  line-height: 1.1;
+  line-height: 1.15;
   color: var(--primary);
-  margin: 0 0 1rem 0;
-  letter-spacing: -0.03em;
+  margin: 0 0 0.5rem 0;
+  letter-spacing: -0.022em;
 }
 
 .poster-content p {
   font-size: 1.6rem;
-  line-height: 1.5;
-  color: var(--text-muted);
+  line-height: 1.55;
+  color: var(--text-dark);
   margin: 0;
   font-weight: 400;
 }
 
 /* Poster Footer containing QR code & call to action */
 .poster-footer {
+  margin-top: auto;
+  border-top: 4px solid var(--accent-gold);
+  background-color: #f8fafc;
+  padding: 0.4in 0.8in;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  border-top: 2px solid var(--border);
-  padding-top: 1.5rem;
-  margin-top: auto;
   gap: 2rem;
 }
 
@@ -114,17 +145,17 @@ body {
 
 .footer-cta {
   font-family: var(--font-heading);
-  font-size: 1.4rem;
-  font-weight: 700;
+  font-size: 1.5rem;
+  font-weight: 800;
   color: var(--primary);
   margin-bottom: 0.4rem;
   letter-spacing: -0.01em;
 }
 
 .footer-instruction {
-  font-size: 1.05rem;
+  font-size: 1.1rem;
   color: var(--text-muted);
-  line-height: 1.4;
+  line-height: 1.45;
 }
 
 .qr-code-wrapper {
@@ -135,6 +166,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
+  box-shadow: 0 4px 10px rgba(0, 60, 108, 0.1);
 }
 
 .qr-code-img {

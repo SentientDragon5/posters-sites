@@ -38,19 +38,31 @@ WEB_TEMPLATE = """<!DOCTYPE html>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
+  <div class="top-bar">
+    <div class="top-bar-container">
+      <span class="top-bar-left">UC Santa Cruz</span>
+    </div>
+  </div>
   <header>
     <div class="header-container">
-      <a href="index.html" class="logo">⚡ Poster Sites Hub</a>
+      <a href="index.html" class="logo-wrapper">
+        <span class="logo-be-badge">BE</span>
+        <span class="logo-text">
+          <span class="logo-title">BELS Info Hub</span>
+          <span class="logo-subtitle">Baskin Engineering Lab Support</span>
+        </span>
+      </a>
       <a href="index.html" class="nav-link">Back to Hub</a>
     </div>
   </header>
+  <div class="gold-bar"></div>
   <main>
     <article>
       {content_html}
     </article>
   </main>
   <footer>
-    <p>&copy; {year} UCSC Game Lab Poster Directory</p>
+    <p>&copy; {year} Baskin Engineering Lab Support (BELS)</p>
   </footer>
 </body>
 </html>
@@ -66,7 +78,9 @@ POSTER_TEMPLATE = """<!DOCTYPE html>
 <body>
   <div class="poster-container">
     <div class="poster-header">
-      <div class="poster-logo">⚡ GAME LAB INFO</div>
+      <div class="poster-logo">
+        <span class="be-badge">BE</span> BELS Info Hub
+      </div>
       <div class="poster-badge">Scan for Links</div>
     </div>
     <div class="poster-content">
@@ -75,7 +89,7 @@ POSTER_TEMPLATE = """<!DOCTYPE html>
     <div class="poster-footer">
       <div class="footer-text-container">
         <div class="footer-cta">Need more details or links?</div>
-        <div class="footer-instruction">Scan the QR code to access the mobile-friendly web page, interactive links, and submit requests directly.</div>
+        <div class="footer-instruction">Scan the QR code to access the mobile-friendly web page, interactive links, and resources directly.</div>
       </div>
       <div class="qr-code-wrapper">
         <img class="qr-code-img" src="{qr_code_path}" alt="QR Code">
@@ -91,26 +105,38 @@ HUB_TEMPLATE = """<!DOCTYPE html>
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Poster Sites Directory</title>
+  <title>BELS Info Hub</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
+  <div class="top-bar">
+    <div class="top-bar-container">
+      <span class="top-bar-left">UC Santa Cruz</span>
+    </div>
+  </div>
   <header>
     <div class="header-container">
-      <a href="index.html" class="logo">⚡ Poster Sites Hub</a>
-      <span class="nav-link">UCSC Game Lab</span>
+      <a href="index.html" class="logo-wrapper">
+        <span class="logo-be-badge">BE</span>
+        <span class="logo-text">
+          <span class="logo-title">BELS Info Hub</span>
+          <span class="logo-subtitle">Baskin Engineering Lab Support</span>
+        </span>
+      </a>
+      <span class="nav-link" style="background-color: transparent; border: none; cursor: default;">Instructional Labs</span>
     </div>
   </header>
+  <div class="gold-bar"></div>
   <main>
-    <h1 class="hub-title">Poster Directory</h1>
-    <p class="hub-subtitle">Access digital counterparts and printed PDF posters for room resources, guides, and facilities.</p>
+    <h1 class="hub-title">BELS Info Hub</h1>
+    <p class="hub-subtitle">Access digital counterparts and printed PDF posters for instructional lab support, equipment guides, and facilities.</p>
     
     <div class="grid">
       {cards}
     </div>
   </main>
   <footer>
-    <p>&copy; {year} UCSC Game Lab Poster Directory</p>
+    <p>&copy; {year} Baskin Engineering Lab Support (BELS)</p>
   </footer>
 </body>
 </html>
@@ -342,7 +368,7 @@ def main():
         card = f"""
       <div class="card">
         <h2 class="card-title">{page['title']}</h2>
-        <p class="card-description">Digital page counterpart and printable poster for room guidelines.</p>
+        <p class="card-description">Digital counterpart and printable poster for lab guidelines and support.</p>
         <div class="card-actions">
           <a href="{page['html_url']}" class="btn btn-primary">View Web Page</a>
           <a href="{page['pdf_url']}" class="btn btn-secondary" download>Download PDF</a>
