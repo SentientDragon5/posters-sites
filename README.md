@@ -9,7 +9,3 @@ The `/pages` pages folder contains each document, and then a parser will create 
 
 Github Repo: https://github.com/SentientDragon5/posters-sites/
 Github Pages: https://sentientdragon5.github.io/posters-sites/
-
-
-Tags are in png format
-assets are put into folders of each page

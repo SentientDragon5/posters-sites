@@ -1,4 +1,4 @@
-== Tag ==
+== Label ==
 Issues? Check out our help site.
 
 == Web ==
