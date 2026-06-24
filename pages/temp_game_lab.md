@@ -9,3 +9,4 @@ Please use the thermostats across the game lab to adjust temperature. If there i
 ![Thermostat Img](pages\temp_game_lab\IMG_9950.JPEG)
 
 [Submit Facilities Request Ticket](https://toolkit.engineering.ucsc.edu/facilities-space-management/help/)
+

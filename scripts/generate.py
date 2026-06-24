@@ -15,6 +15,7 @@ from datetime import datetime
 import urllib.parse
 import markdown
 import qrcode
+# pyrefly: ignore [missing-import]
 from playwright.sync_api import sync_playwright
 
 # Configuration
@@ -52,7 +53,10 @@ WEB_TEMPLATE = """<!DOCTYPE html>
           <span class="logo-subtitle">Baskin Engineering Lab Support</span>
         </span>
       </a>
-      <a href="index.html" class="nav-link">Back to Hub</a>
+      <div class="header-actions" style="display: flex; gap: 0.75rem; flex-wrap: wrap;">
+        <a href="assets/{pdf_filename}" class="nav-link" download>Download PDF</a>
+        <a href="index.html" class="nav-link">Back to Hub</a>
+      </div>
     </div>
   </header>
   <div class="gold-bar"></div>
@@ -362,6 +366,7 @@ def main():
         web_html = WEB_TEMPLATE.format(
             title=web_title,
             content_html=web_html_content,
+            pdf_filename=f"{slug}.pdf",
             year=datetime.now().year
         )
         web_dest_path = os.path.join(DOCS_DIR, f"{slug}.html")
@@ -384,8 +389,12 @@ def main():
         try:
             render_pdf(temp_html_path, pdf_dest_path)
             print(f"  Generated Poster PDF: output/{slug}.pdf")
+            # Cache PDF to assets folder for web downloads
+            cached_pdf_path = os.path.join(ASSETS_DIR, f"{slug}.pdf")
+            shutil.copy2(pdf_dest_path, cached_pdf_path)
+            print(f"  Cached PDF to assets: docs/assets/{slug}.pdf")
         except Exception as e:
-            print(f"  Error rendering PDF for {slug}: {e}")
+            print(f"  Error rendering/caching PDF for {slug}: {e}")
         finally:
             if os.path.exists(temp_html_path):
                 os.remove(temp_html_path)
@@ -411,7 +420,7 @@ def main():
         pages_data.append({
             "title": web_title,
             "slug": slug,
-            "pdf_url": f"../output/{slug}.pdf",
+            "pdf_url": f"assets/{slug}.pdf",
             "html_url": f"{slug}.html"
         })
 
