@@ -1,0 +1,11 @@
+{
+  "title": "Welcome to the Game Lab!",
+  "slug": "help_game_lab",
+  "content_html": "<h1>Welcome to the Game Lab!</h1>\n<h2>Rules</h2>\n<ul>\n<li>Clean up after yourself</li>\n<li>This room is reserved for CS:GD Capstone students and Class Sections</li>\n<li>All equipment (controllers, consoles, mice, ect.) stay in the lab<br />\nThank you!</li>\n</ul>\n<p>Join the <a href=\"https://discord.gg/gDSVhaCVw3\">Discord</a></p>",
+  "meta": {
+    "generated_at": "2026-06-24T18:48:20.929363Z",
+    "source_file": "pages/help_game_lab.md",
+    "qr_url": "https://SentientDragon5.github.io/posters-sites/help_game_lab.html"
+  },
+  "media": []
+}

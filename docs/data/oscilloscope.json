@@ -1,9 +1,9 @@
 {
   "title": "How to use an Oscilloscope",
   "slug": "oscilloscope",
-  "content_html": "<h1>How to use an Oscilloscope</h1>\n<p>An oscillioscope helps you view the waveform that the voltage takes in a circuit.</p>\n<p><div class=\"video-container\">\n  <iframe src=\"https://www.youtube.com/embed/lSHAE_Y6snc\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen></iframe>\n</div></p>\n<p>If the machine is broken, <a href=\"https://bels.engineering.ucsc.edu/open-support-ticket/\">open a ticket with BELS</a></p>",
+  "content_html": "<h1>How to use an Oscilloscope</h1>\n<p>An oscillioscope helps you view the waveform that the voltage takes in a circuit.</p>\n<p><div class=\"video-container\">\n  <iframe src=\"https://www.youtube.com/embed/lSHAE_Y6snc\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen></iframe>\n</div></p>\n<p>If the machine is broken <a href=\"https://bels.engineering.ucsc.edu/open-support-ticket/\">open a ticket with BELS</a></p>",
   "meta": {
-    "generated_at": "2026-06-23T21:53:10.464506Z",
+    "generated_at": "2026-06-24T18:48:23.059466Z",
     "source_file": "pages/oscilloscope.md",
     "qr_url": "https://SentientDragon5.github.io/posters-sites/oscilloscope.html"
   },
